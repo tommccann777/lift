@@ -10,7 +10,8 @@ Edit set_env.sh as appropriate, then run this command. (Using the test ids in th
 
 ## Step 2: Command to deploy this contract:
 
-`dfx deploy icrc1_ledger_canister --specified-id mxzaz-hqaaa-aaaar-qaada-cai --argument "(variant {Init =
+```
+dfx deploy icrc1_ledger_canister --specified-id mxzaz-hqaaa-aaaar-qaada-cai --argument "(variant {Init =
 record {
 token_symbol = \"${TOKEN_SYMBOL}\";
      token_name = \"${TOKEN_NAME}\";
@@ -26,11 +27,13 @@ minting_account = record { owner = principal \"${MINTER}\" };
 cycles_for_archive_creation = opt ${CYCLE_FOR_ARCHIVE_CREATION};
 };
 }
-})"`
+})"
+```
 
 ## Step 3: Command to transfer 50,000 tokens from the minter account to user alice
 
-`dfx canister call icrc1_ledger_canister icrc1_transfer '(
+```
+dfx canister call icrc1_ledger_canister icrc1_transfer '(
 record {
 from = opt principal "oi3ng-j6cnw-owsv3-4gtwq-nqfhh-ghwzh-assfr-khsv2-d37rq-2ejnj-xqe";
 to = record {
@@ -42,6 +45,7 @@ fee = opt 0;
 memo = opt blob "Test of minting";
 created_at_time = null;
 }
-)'`
+)'
+```
 
 Should respond with: `(variant { Ok = 1 : nat })`
