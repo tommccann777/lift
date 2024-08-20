@@ -1,14 +1,26 @@
 {
   "canisters": {
-    "lift_backend": {
-      "main": "src/lift_backend/main.mo",
-      "type": "motoko"
+    "icrc1_index_canister": {
+      "type": "custom",
+      "candid": "index.did",
+      "wasm": "index.wasm.gz"
+    },
+    "icrc1_ledger_canister": {
+      "type": "custom",
+      "candid": "icrc1_ledger.did",
+      "wasm": "icrc1_ledger.wasm.gz"
     }
   },
   "defaults": {
     "build": {
       "args": "",
       "packtool": ""
+    }
+  },
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
     }
   },
   "output_env_file": ".env",
