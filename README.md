@@ -3,12 +3,17 @@
 This set of canisters creates LIFT (Lift Cash) token.
 Then it demonstrates how to mint by transferring from the minter id to a user.
 
-## Step 1: Set up the environment variables used in step 2:
+## Step 1: Download the latest icrc1 ledger wasm and did file
 
-Edit set_env.sh as appropriate, then run this command. (Using the test ids in the file test ids):
+Run the command:
+`source download_latest_icrc1_ledger.sh`
+
+## Step 2: Set up the environment variables used in step 3:
+
+Edit set_env.sh as appropriate, then run this command: (Currently using the test ids in the file test ids):
 `source set_env.sh`
 
-## Step 2: Command to deploy this contract:
+## Step 3: Command to deploy this contract:
 
 ```
 dfx deploy icrc1_ledger_canister --specified-id mxzaz-hqaaa-aaaar-qaada-cai --argument "(variant {Init =
@@ -30,7 +35,7 @@ cycles_for_archive_creation = opt ${CYCLE_FOR_ARCHIVE_CREATION};
 })"
 ```
 
-## Step 3: Command to transfer 50,000 tokens from the minter account to user alice
+## Step 4: Command to transfer 50,000 tokens from the minter account to user alice
 
 ```
 dfx canister call icrc1_ledger_canister icrc1_transfer '(
